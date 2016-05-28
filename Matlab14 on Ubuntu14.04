@@ -1,0 +1,16 @@
+# There are videos to install Matlab R2014b on Ubuntu 14.04. However, in case there appears to be a problem 
+# with java, with file libjli.so, you need to find its' location. 
+# For that you type in the terminal (or any other command you know to locate the file):
+
+ls -l $(locate libjli.so)
+
+# the output was like this for me:
+
+-rw-r--r-- 1 root root 56072 abr 24 22:10 /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+
+# For some reason this is not what we need. So to install Matlab you go to your Matlab folder 
+# with file "install" and, as a root, type in the terminal:
+
+./install -javadir /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/
+
+# Then you proceed with installation instructions. For it worked fine.
